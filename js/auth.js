@@ -5,9 +5,11 @@ if (registerForm) {
   registerForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const name = document.querySelector("#name").value;
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+    const firstName = document.querySelector("#name").value;
+    const lastName = document.querySelector("#last-name").value;
+    const name = `${firstName} ${lastName}`;
+    const email = document.querySelector("#email-register").value;
+    const password = document.querySelector("#password-register").value;
 
     try {
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
