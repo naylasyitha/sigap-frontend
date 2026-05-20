@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGAP – Jadwal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base styles (termasuk navbar.css via @import) -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Jadwal-specific styles -->
+  <link rel="stylesheet" href="css/jadwal.css" />
+</head>
+
+<body class="jadwal-page">
+
+  <!-- ===== NAVBAR (persis sama kaya index.html) ===== -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="SIGAP">
+      <span>SIGAP</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html#beranda">Beranda</a>
+      <a href="index.html#grafik">Grafik</a>
+      <a href="index.html#mpasi">MPASI</a>
+      <a href="jadwal.html" class="login-btn">Jadwal</a>
+      <a href="profile.html">Profile</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#beranda">Beranda</a>
+    <a href="index.html#grafik">Grafik</a>
+    <a href="index.html#mpasi">MPASI</a>
+    <a href="jadwal.html" class="mobile-login">Jadwal</a>
+    <a href="profile.html">Profile</a>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <div class="jadwal-container">
+
+      <!-- SIDEBAR -->
+      <aside class="jadwal-sidebar">
+        <div class="sidebar-notice">
+          <span class="notice-icon">💡</span>
+          <p>Pastikan notifikasi email anda telah aktif untuk menerima pengingat jadwal!</p>
+        </div>
+
+        <div class="sidebar-info">
+          <p>Notifikasi pengingat jadwal dikirimkan melalui email yang sudah terdaftar.</p>
+        </div>
+
+        <button class="btn-tambah-jadwal" id="btnTambahJadwal">
+          Tambah Jadwal
+        </button>
+        <p class="btn-tambah-caption">Tambahkan jadwal pengukuran, imunisasi, atau kunjungan ke bidan</p>
+      </aside>
+
+      <!-- SCHEDULE LIST -->
+      <section class="jadwal-list" id="jadwalList">
+
+        <!-- Hari ini -->
+        <div class="jadwal-group">
+          <h2 class="jadwal-group-title">Hari ini</h2>
+
+          <div class="jadwal-card" data-type="timbang">
+            <div class="jadwal-color-block"></div>
+            <div class="jadwal-card-info">
+              <h4>Jadwal Timbang Zara</h4>
+              <p>14 Bulan – 2 Minggu tidak timbang</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Minggu ini -->
+        <div class="jadwal-group">
+          <h2 class="jadwal-group-title">Minggu ini</h2>
+
+          <div class="jadwal-card" data-type="lainnya">
+            <div class="jadwal-color-block"></div>
+            <div class="jadwal-card-info">
+              <h4>Jadwal Timbang Putra</h4>
+              <p>8 Bulan – Kamis, 21 Mei 2026</p>
+            </div>
+          </div>
+
+          <div class="jadwal-card" data-type="imunisasi">
+            <div class="jadwal-color-block"></div>
+            <div class="jadwal-card-info">
+              <h4>Imunisasi PCV Putra</h4>
+              <p>8 Bulan – Kamis, 21 Mei 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Senin, 25 Mei 2026 -->
+        <div class="jadwal-group">
+          <h2 class="jadwal-group-title">Senin, 25 Mei 2026</h2>
+
+          <div class="jadwal-card" data-type="imunisasi">
+            <div class="jadwal-color-block"></div>
+            <div class="jadwal-card-info">
+              <h4>Imunisasi MR Booster Zara</h4>
+              <p>14 Bulan – Senin, 25 Mei 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kamis, 28 Mei 2026 -->
+        <div class="jadwal-group">
+          <h2 class="jadwal-group-title">Kamis, 28 Mei 2026</h2>
+
+          <div class="jadwal-card" data-type="imunisasi">
+            <div class="jadwal-color-block"></div>
+            <div class="jadwal-card-info">
+              <h4>Imunisasi MR Putra</h4>
+              <p>9 Bulan – Senin, 25 Mei 2026</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== INPUT JADWAL MODAL ===== -->
+  <div class="modal-overlay" id="modalTambahJadwal">
+    <div class="modal-box">
+
+      <!-- Pilih Profile Anak -->
+      <div>
+        <label class="form-label">PILIH PROFILE ANAK</label>
+        <div class="profile-select-box">
+          <div class="profile-avatar">👶</div>
+          <div class="profile-info">
+            <strong>Zara Aisyah</strong>
+            <span>14 bulan – Perempuan</span>
+          </div>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+      </div>
+
+      <!-- Tanggal & Waktu -->
+      <div class="form-row">
+        <div>
+          <label class="form-label">TANGGAL</label>
+          <div class="form-input-wrap">
+            <input type="date" class="form-input" id="inputTanggal" value="2026-05-27">
+            <!-- <span class="input-icon">📅</span> -->
+          </div>
+        </div>
+        <div>
+          <label class="form-label">WAKTU</label>
+          <div class="form-input-wrap">
+            <input type="time" class="form-input" id="inputWaktu" value="09:00">
+            <span class="input-icon">🕐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jenis Kegiatan -->
+      <div>
+        <label class="form-label">JENIS KEGIATAN</label>
+        <div class="select-wrap">
+          <select class="form-select" id="inputJenis">
+            <option value="imunisasi">Imunisasi</option>
+            <option value="timbang">Jadwal Timbang</option>
+            <option value="mpasi">Cek Kesehatan</option>
+            <option value="bidan">Kunjungan Bidan</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Nama Kegiatan -->
+      <div>
+        <label class="form-label">NAMA KEGIATAN</label>
+        <input type="text" class="form-text" id="inputNama" placeholder="Misal: Imunisasi Varisela, Jadwal Timbang">
+      </div>
+
+      <!-- Lokasi -->
+      <div>
+        <label class="form-label">LOKASI</label>
+        <input type="text" class="form-text" id="inputLokasi" placeholder="Nama Rumah Sakit atau Puskesmas">
+      </div>
+
+      <!-- Actions -->
+      <div class="modal-actions">
+        <button class="btn-simpan" id="btnSimpan">Simpan</button>
+        <button class="btn-batal" id="btnBatal">Batal</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER (sama struktur kaya index.html) ===== -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="assets/logo-footer-dashboard.png" alt="SIGAP">
+      <span>SIGAP</span>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <img src="assets/instagram-footer-dashboard.png" alt=""> @sigap_official
+      </p>
+      <p>
+        <img src="assets/whatsapp-footer-dashboard.png" alt=""> 0852-6742-9033
+      </p>
+      <p>
+        <img src="assets/email-footer-dashboard.png" alt=""> sigap@gmail.com
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/navbar.js"></script>
+  <script>
+    // ---- Modal open/close ----
+    const modal      = document.getElementById('modalTambahJadwal');
+    const btnTambah  = document.getElementById('btnTambahJadwal');
+    const btnBatal   = document.getElementById('btnBatal');
+    const btnSimpan  = document.getElementById('btnSimpan');
+
+    btnTambah.addEventListener('click', () => modal.classList.add('active'));
+    btnBatal.addEventListener('click',  () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+
+    // ---- Simpan jadwal baru (append ke list) ----
+    btnSimpan.addEventListener('click', () => {
+      const jenis  = document.getElementById('inputJenis').value;
+      const nama   = document.getElementById('inputNama').value.trim();
+      const tgl    = document.getElementById('inputTanggal').value;
+      const waktu  = document.getElementById('inputWaktu').value;
+
+      if (!nama) {
+        alert('Nama kegiatan wajib diisi!');
+        return;
+      }
+
+      // Format tanggal ke bahasa Indonesia sederhana
+      const tglFormatted = new Date(tgl).toLocaleDateString('id-ID', {
+        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+      });
+
+      // Cari/buat group untuk tanggal ini
+      const listEl = document.getElementById('jadwalList');
+      let group = listEl.querySelector(`[data-date="${tgl}"]`);
+
+      if (!group) {
+        group = document.createElement('div');
+        group.className = 'jadwal-group';
+        group.setAttribute('data-date', tgl);
+        group.innerHTML = `<h2 class="jadwal-group-title">${tglFormatted}</h2>`;
+        listEl.appendChild(group);
+      }
+
+      // Buat card
+      const card = document.createElement('div');
+      card.className = 'jadwal-card';
+      card.setAttribute('data-type', jenis);
+      card.innerHTML = `
+        <div class="jadwal-color-block"></div>
+        <div class="jadwal-card-info">
+          <h4>${nama}</h4>
+          <p>${tglFormatted}${waktu ? ' – ' + waktu : ''}</p>
+        </div>`;
+      group.appendChild(card);
+
+      // Reset & tutup modal
+      document.getElementById('inputNama').value   = '';
+      document.getElementById('inputLokasi').value = '';
+      modal.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
