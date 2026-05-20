@@ -8,17 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/jadwal.css" />
 </head>
 
 <body class="jadwal-page">
-
-  <nav class="navbar">
+  <nav class="navbar jadwal-navbar">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="SIGAP">
-      <span>SIGAP</span>
+        <img src="assets/logo.png" alt="SIGAP" class="logo-desktop">
+        <img src="assets/logo-footer-dashboard.png" alt="SIGAP" class="logo-mobile">
+        <span>SIGAP</span>
     </a>
 
     <div class="nav-links">
@@ -36,20 +35,16 @@
     </button>
   </nav>
 
-  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html#beranda">Beranda</a>
     <a href="index.html#grafik">Grafik</a>
-    <a href="index.html#mpasi">MPASI</a>
+    <a href="mpasi.html">MPASI</a>
     <a href="jadwal.html" class="mobile-login">Jadwal</a>
     <a href="profile.html">Profile</a>
   </div>
 
-  <!-- ===== MAIN CONTENT ===== -->
   <main>
     <div class="jadwal-container">
-
-      <!-- SIDEBAR -->
       <aside class="jadwal-sidebar">
         <div class="sidebar-notice">
           <span class="notice-icon">💡</span>
@@ -65,14 +60,9 @@
         </button>
         <p class="btn-tambah-caption">Tambahkan jadwal pengukuran, imunisasi, atau kunjungan ke bidan</p>
       </aside>
-
-      <!-- SCHEDULE LIST -->
       <section class="jadwal-list" id="jadwalList">
-
-        <!-- Hari ini -->
         <div class="jadwal-group">
           <h2 class="jadwal-group-title">Hari ini</h2>
-
           <div class="jadwal-card" data-type="timbang">
             <div class="jadwal-color-block"></div>
             <div class="jadwal-card-info">
@@ -81,8 +71,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Minggu ini -->
         <div class="jadwal-group">
           <h2 class="jadwal-group-title">Minggu ini</h2>
 
@@ -93,7 +81,6 @@
               <p>8 Bulan – Kamis, 21 Mei 2026</p>
             </div>
           </div>
-
           <div class="jadwal-card" data-type="imunisasi">
             <div class="jadwal-color-block"></div>
             <div class="jadwal-card-info">
@@ -102,8 +89,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Senin, 25 Mei 2026 -->
         <div class="jadwal-group">
           <h2 class="jadwal-group-title">Senin, 25 Mei 2026</h2>
 
@@ -115,11 +100,8 @@
             </div>
           </div>
         </div>
-
-        <!-- Kamis, 28 Mei 2026 -->
         <div class="jadwal-group">
           <h2 class="jadwal-group-title">Kamis, 28 Mei 2026</h2>
-
           <div class="jadwal-card" data-type="imunisasi">
             <div class="jadwal-color-block"></div>
             <div class="jadwal-card-info">
@@ -133,11 +115,8 @@
     </div>
   </main>
 
-  <!-- ===== INPUT JADWAL MODAL ===== -->
   <div class="modal-overlay" id="modalTambahJadwal">
     <div class="modal-box">
-
-      <!-- Pilih Profile Anak -->
       <div>
         <label class="form-label">PILIH PROFILE ANAK</label>
         <div class="profile-select-box">
@@ -149,14 +128,11 @@
           <span class="dropdown-arrow">▼</span>
         </div>
       </div>
-
-      <!-- Tanggal & Waktu -->
       <div class="form-row">
         <div>
           <label class="form-label">TANGGAL</label>
           <div class="form-input-wrap">
             <input type="date" class="form-input" id="inputTanggal" value="2026-05-27">
-            <!-- <span class="input-icon">📅</span> -->
           </div>
         </div>
         <div>
@@ -167,8 +143,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Jenis Kegiatan -->
       <div>
         <label class="form-label">JENIS KEGIATAN</label>
         <div class="select-wrap">
@@ -181,52 +155,41 @@
           </select>
         </div>
       </div>
-
-      <!-- Nama Kegiatan -->
       <div>
         <label class="form-label">NAMA KEGIATAN</label>
         <input type="text" class="form-text" id="inputNama" placeholder="Misal: Imunisasi Varisela, Jadwal Timbang">
       </div>
-
-      <!-- Lokasi -->
       <div>
         <label class="form-label">LOKASI</label>
         <input type="text" class="form-text" id="inputLokasi" placeholder="Nama Rumah Sakit atau Puskesmas">
       </div>
-
-      <!-- Actions -->
       <div class="modal-actions">
         <button class="btn-simpan" id="btnSimpan">Simpan</button>
         <button class="btn-batal" id="btnBatal">Batal</button>
       </div>
-
     </div>
   </div>
 
-  <!-- ===== FOOTER (sama struktur kaya index.html) ===== -->
-  <footer class="footer">
+  <footer class="footer jadwal-footer">
     <div class="footer-logo">
-      <img src="assets/logo-footer-dashboard.png" alt="SIGAP">
+      <img src="assets/logo.png" alt="SIGAP">
       <span>SIGAP</span>
     </div>
-
     <div class="footer-contact">
       <p>
-        <img src="assets/instagram-footer-dashboard.png" alt=""> @sigap_official
+        <img src="assets/instagram-footer.png" alt=""> @sigap_official
       </p>
       <p>
-        <img src="assets/whatsapp-footer-dashboard.png" alt=""> 0852-6742-9033
+        <img src="assets/whatsapp-footer.png" alt=""> 0852-6742-9033
       </p>
       <p>
-        <img src="assets/email-footer-dashboard.png" alt=""> sigap@gmail.com
+        <img src="assets/email-footer.png" alt=""> sigap@gmail.com
       </p>
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
   <script src="js/navbar.js"></script>
   <script>
-    // ---- Modal open/close ----
     const modal      = document.getElementById('modalTambahJadwal');
     const btnTambah  = document.getElementById('btnTambahJadwal');
     const btnBatal   = document.getElementById('btnBatal');
@@ -238,7 +201,6 @@
       if (e.target === modal) modal.classList.remove('active');
     });
 
-    // ---- Simpan jadwal baru (append ke list) ----
     btnSimpan.addEventListener('click', () => {
       const jenis  = document.getElementById('inputJenis').value;
       const nama   = document.getElementById('inputNama').value.trim();
@@ -250,12 +212,10 @@
         return;
       }
 
-      // Format tanggal ke bahasa Indonesia sederhana
       const tglFormatted = new Date(tgl).toLocaleDateString('id-ID', {
         weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
       });
 
-      // Cari/buat group untuk tanggal ini
       const listEl = document.getElementById('jadwalList');
       let group = listEl.querySelector(`[data-date="${tgl}"]`);
 
@@ -267,7 +227,6 @@
         listEl.appendChild(group);
       }
 
-      // Buat card
       const card = document.createElement('div');
       card.className = 'jadwal-card';
       card.setAttribute('data-type', jenis);
@@ -285,6 +244,5 @@
       modal.classList.remove('active');
     });
   </script>
-
 </body>
 </html>

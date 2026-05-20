@@ -1,8 +1,8 @@
 :root {
   --color-timbang:    #F5A623;
   --color-imunisasi:  #A78BFA;
-  --color-mpasi:      #34D399;
-  --color-bidan:      #60A5FA;
+  --color-cek:       #60A5FA;
+  --color-bidan:      #34D399; 
   --color-lainnya:    #155740;
 }
 
@@ -12,7 +12,6 @@
   padding-bottom: 0;
 }
 
-/* ===== MAIN LAYOUT (Desktop) ===== */
 .jadwal-container {
   width: min(1000px, calc(100% - 40px));
   margin: 0 auto;
@@ -24,12 +23,15 @@
   align-items: start;
 }
 
-/* ===== SIDEBAR ===== */
+.jadwal-navbar {
+  background: #CFE4DC;
+}
+
 .jadwal-sidebar {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  position: sticky;
+  position: flex;
   top: 130px;
 }
 
@@ -94,7 +96,6 @@
   text-align: center;
 }
 
-/* ===== SCHEDULE LIST ===== */
 .jadwal-list {
   display: flex;
   flex-direction: column;
@@ -115,7 +116,6 @@
   gap: 10px;
 }
 
-/* ===== SCHEDULE CARD ===== */
 .jadwal-card {
   background: #fff;
   border-radius: 16px;
@@ -132,7 +132,6 @@
   border-color: rgba(21,87,64,0.12);
 }
 
-/* Color block — warna sesuai jenis kegiatan */
 .jadwal-color-block {
   width: 52px;
   height: 52px;
@@ -140,10 +139,9 @@
   flex-shrink: 0;
 }
 
-/* Warna per jenis */
 .jadwal-card[data-type="timbang"]   .jadwal-color-block { background: var(--color-timbang); }
 .jadwal-card[data-type="imunisasi"] .jadwal-color-block { background: var(--color-imunisasi); }
-.jadwal-card[data-type="mpasi"]     .jadwal-color-block { background: var(--color-mpasi); }
+.jadwal-card[data-type="cek"]     .jadwal-color-block { background: var(--color-cek); }
 .jadwal-card[data-type="bidan"]     .jadwal-color-block { background: var(--color-bidan); }
 .jadwal-card[data-type="lainnya"]   .jadwal-color-block { background: var(--color-lainnya); }
 
@@ -161,7 +159,6 @@
   color: #5a8070;
 }
 
-/* ===== INPUT JADWAL MODAL ===== */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -197,7 +194,6 @@
   transform: translateY(0);
 }
 
-/* Field label */
 .form-label {
   font-family: "Poppins", sans-serif;
   font-size: 12px;
@@ -208,7 +204,6 @@
   display: block;
 }
 
-/* Profile dropdown */
 .profile-select-box {
   background: #d4ece0;
   border-radius: 14px;
@@ -255,7 +250,6 @@
   font-size: 14px;
 }
 
-/* Date & time row */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -292,7 +286,6 @@
   pointer-events: none;
 }
 
-/* Jenis kegiatan select */
 .form-select {
   width: 100%;
   background: #ebf5f0;
@@ -322,7 +315,6 @@
   pointer-events: none;
 }
 
-/* Text inputs */
 .form-text {
   width: 100%;
   background: #ebf5f0;
@@ -339,7 +331,6 @@
   color: #7a9e8e;
 }
 
-/* Buttons */
 .modal-actions {
   display: flex;
   gap: 12px;
@@ -377,60 +368,23 @@
 
 .btn-batal:hover { background: #c44d2e; }
 
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--green);
-  padding: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: var(--white);
-  border-radius: 20px;
-  padding: 20px 28px;
-}
-
-.footer-logo img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.footer-logo span {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--green);
-}
-
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-end;
-}
-
-.footer-contact p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+.jadwal-footer {
+  background: linear-gradient(180deg, #239068 0%, #063d32 100%);
   color: var(--white);
 }
 
-.footer-contact img {
-  width: 24px;
-  height: 24px;
+.jadwal-footer .footer-logo {
+  background: var(--white);
+  color: var(--green);
 }
 
-/* ===== RESPONSIVE MOBILE ===== */
+.jadwal-footer .footer-contact {
+  color: var(--white);
+}
+
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
+
 @media (max-width: 768px) {
   .jadwal-container {
     grid-template-columns: 1fr;
@@ -438,7 +392,22 @@
     gap: 0;
   }
 
-  /* Pada mobile: list jadwal dulu, sidebar di bawah */
+  .jadwal-navbar {
+    background: #1A6B4F;
+  }
+
+  .jadwal-navbar .nav-logo,
+  .jadwal-navbar .nav-logo span {
+    color: var(--white);
+  }
+
+  .jadwal-navbar .hamburger span {
+    background: var(--white);
+  }
+
+  .jadwal-navbar .logo-desktop { display: none; }
+  .jadwal-navbar .logo-mobile { display: block; }
+
   .jadwal-sidebar {
     order: 2;
     position: static;
@@ -453,7 +422,6 @@
     border-radius: 14px;
   }
 
-  /* Modal full-width pada mobile */
   .modal-box {
     padding: 24px 20px;
     border-radius: 20px;
@@ -469,16 +437,16 @@
     text-align: center;
   }
 
-  /* Footer mobile */
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding: 32px 24px;
-    border-radius: 24px 24px 0 0;
+  .jadwal-footer {
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
   }
 
-  .footer-contact {
-    align-items: center;
+  .jadwal-footer .footer-logo {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .jadwal-footer .footer-contact {
+    color: var(--white);
   }
 }

@@ -197,7 +197,7 @@
   }
 
   .mpasi-navbar {
-    background: #239068;
+    background: #1A6B4F;
   }
 
   .mpasi-navbar .nav-logo,
@@ -288,7 +288,7 @@
   }
 
   .mpasi-footer {
-    background: var(--green);
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
   }
 
   .mpasi-footer .footer-logo {
