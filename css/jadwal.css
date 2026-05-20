@@ -1,0 +1,488 @@
+/* ===== JADWAL PAGE STYLES ===== */
+
+/* Activity type colors — mudah dikonfigurasi */
+:root {
+  --color-timbang:    #F5A623;
+  --color-imunisasi:  #A78BFA;
+  --color-mpasi:      #34D399;
+  --color-bidan:      #60A5FA;
+  --color-lainnya:    #155740;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.jadwal-page {
+  background: #f0f5f2;
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+
+/* ===== MAIN LAYOUT (Desktop) ===== */
+.jadwal-container {
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 140px;
+  padding-bottom: 60px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ===== SIDEBAR ===== */
+.jadwal-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 130px;
+}
+
+.sidebar-notice {
+  background: rgba(21, 87, 64, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sidebar-notice .notice-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sidebar-notice p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.sidebar-info {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.sidebar-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.btn-tambah-jadwal {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-tambah-jadwal:hover {
+  background: var(--green-dark);
+}
+
+.btn-tambah-caption {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #7a9e8e;
+  text-align: center;
+}
+
+/* ===== SCHEDULE LIST ===== */
+.jadwal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.jadwal-group-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.jadwal-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== SCHEDULE CARD ===== */
+.jadwal-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.jadwal-card:hover {
+  box-shadow: 0 4px 16px rgba(21,87,64,0.10);
+  border-color: rgba(21,87,64,0.12);
+}
+
+/* Color block — warna sesuai jenis kegiatan */
+.jadwal-color-block {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Warna per jenis */
+.jadwal-card[data-type="timbang"]   .jadwal-color-block { background: var(--color-timbang); }
+.jadwal-card[data-type="imunisasi"] .jadwal-color-block { background: var(--color-imunisasi); }
+.jadwal-card[data-type="mpasi"]     .jadwal-color-block { background: var(--color-mpasi); }
+.jadwal-card[data-type="bidan"]     .jadwal-color-block { background: var(--color-bidan); }
+.jadwal-card[data-type="lainnya"]   .jadwal-color-block { background: var(--color-lainnya); }
+
+.jadwal-card-info h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 2px;
+}
+
+.jadwal-card-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #5a8070;
+}
+
+/* ===== INPUT JADWAL MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 24px;
+  width: min(560px, 100%);
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+/* Field label */
+.form-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Profile dropdown */
+.profile-select-box {
+  background: #d4ece0;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info strong {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.profile-info span {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #4a7a62;
+}
+
+.dropdown-arrow {
+  color: var(--green);
+  font-size: 14px;
+}
+
+/* Date & time row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-input-wrap {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 40px 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+}
+
+.form-input::placeholder {
+  color: #7a9e8e;
+}
+
+.input-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Jenis kegiatan select */
+.form-select {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 40px 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--green);
+  pointer-events: none;
+}
+
+/* Text inputs */
+.form-text {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+
+.form-text::placeholder {
+  color: #7a9e8e;
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.btn-simpan {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-simpan:hover { background: var(--green-dark); }
+
+.btn-batal {
+  background: #e05a3a;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-batal:hover { background: #c44d2e; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--green);
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 20px 28px;
+}
+
+.footer-logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.footer-logo span {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.footer-contact img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  .jadwal-container {
+    grid-template-columns: 1fr;
+    padding-top: 130px;
+    gap: 0;
+  }
+
+  /* Pada mobile: list jadwal dulu, sidebar di bawah */
+  .jadwal-sidebar {
+    order: 2;
+    position: static;
+    margin-top: 32px;
+  }
+
+  .jadwal-list {
+    order: 1;
+  }
+
+  .btn-tambah-jadwal {
+    border-radius: 14px;
+  }
+
+  /* Modal full-width pada mobile */
+  .modal-box {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-simpan,
+  .btn-batal {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Footer mobile */
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 24px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+}
