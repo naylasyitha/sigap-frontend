@@ -76,7 +76,7 @@ if (loginForm) {
 
       alert("Login berhasil!");
 
-      window.location.href = "dashboard.html";
+      window.location.href = "index.html";
     } catch (error) {
       alert("Terjadi kesalahan");
       console.error(error);

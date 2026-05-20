@@ -1,6 +1,3 @@
-/* ===== JADWAL PAGE STYLES ===== */
-
-/* Activity type colors — mudah dikonfigurasi */
 :root {
   --color-timbang:    #F5A623;
   --color-imunisasi:  #A78BFA;
@@ -9,7 +6,6 @@
   --color-lainnya:    #155740;
 }
 
-/* ===== PAGE WRAPPER ===== */
 .jadwal-page {
   background: #f0f5f2;
   min-height: 100vh;

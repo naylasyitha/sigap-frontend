@@ -72,6 +72,27 @@
   border-radius: 999px;
 }
 
+.navbar-green {
+  background: rgba(207, 228, 220, 0.92);
+}
+
+.navbar-green .nav-logo {
+  color: var(--white);
+}
+
+.navbar-green .nav-links a {
+  color: var(--white);
+}
+
+.navbar-green .nav-links .login-btn {
+  background: var(--white);
+  color: var(--green);
+}
+
+.navbar-green .hamburger span {
+  background: var(--white);
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
