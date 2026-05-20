@@ -14,6 +14,17 @@
   align-items: start;
 }
 
+.mpasi-navbar {
+  background: #CFE4DC;
+}
+
+.mpasi-active {
+  background: var(--green);
+  color: var(--white) !important;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+
 .mpasi-left {
   display: flex;
   flex-direction: column;
