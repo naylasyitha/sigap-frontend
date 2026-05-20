@@ -110,7 +110,7 @@
 
 .menu-card-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 7px;
@@ -136,9 +136,18 @@
 }
 
 .menu-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13.5px;
   font-weight: 500;
   color: var(--green);
+}
+
+.duration-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 .pagination {
@@ -177,6 +186,9 @@
 .mpasi-footer .footer-contact {
   color: var(--white);
 }
+
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -287,4 +299,7 @@
   .mpasi-footer .footer-contact {
     color: var(--white);
   }
+
+  .mpasi-navbar .logo-desktop { display: none; }
+  .mpasi-navbar .logo-mobile { display: block; }
 }

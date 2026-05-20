@@ -23,7 +23,7 @@ function getImageUrl(imageUrl) {
     return imageUrl;
   }
 
-  return `${API_ORIGIN}${imageUrl}`;
+  return `${API_ORIGIN}/${imageUrl}`;
 }
 
 function renderMenus(menus) {
@@ -49,7 +49,10 @@ function renderMenus(menus) {
             <span class="menu-age">${formatAge(menu.age_range)}</span>
           </div>
 
-          <p class="menu-duration">⏱ ${menu.duration}</p>
+          <p class="menu-duration">
+            <img src="assets/stopwatch.png" alt="" class="duration-icon">
+            ${menu.duration}
+          </p>
         </div>
       </article>
     `;
