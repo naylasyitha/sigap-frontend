@@ -1,0 +1,520 @@
+.login-body {
+  background: var(--white);
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+}
+
+.login-left {
+  position: relative;
+  background: var(--green);
+  color: var(--white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.login-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 12%, rgba(36, 154, 120, 0.5), transparent 28%),
+    linear-gradient(135deg, rgba(15, 92, 77, 0.85), rgba(9, 67, 55, 1));
+}
+
+.login-logo-small {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: var(--white);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-logo-small img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.login-left-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.login-left-text h1 {
+  font-size: clamp(44px, 5vw, 58px);
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.login-left-text span {
+  color: var(--cream);
+  font-style: italic;
+}
+
+.login-left-text p {
+  margin-top: 22px;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.login-right {
+  position: relative;
+  overflow: hidden;
+  border-radius: 42px 0 0 42px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-box {
+  width: min(460px, calc(100% - 48px));
+  position: relative;
+  z-index: 2;
+}
+
+.login-logo-mobile {
+  display: none;
+}
+
+.login-form-box h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: 44px;
+  line-height: 1;
+  text-align: center;
+  font-weight: 900;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: rgba(122, 136, 126, 0.65);
+  font-weight: 500;
+  margin: 8px 0 45px; 
+}
+
+.login-form-box label,
+.password-row label {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.login-form-box input[type="email"],
+.login-form-box input[type="password"] {
+  width: 100%;
+  height: 42px;
+  border-radius: 999px;
+  border: 2px solid var(--green);
+  background: #CFE4DC;
+  padding: 0 18px;
+  outline: none;
+  margin: 8px 0 34px;
+  font-size: 16px;
+  color: var(--green);
+}
+
+.password-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.password-row a,
+.register-link a {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.remember-row {
+  margin-top: -22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remember-row input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--green);
+}
+
+.remember-row span {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.login-submit {
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 62px;
+  cursor: pointer;
+}
+
+.register-link {
+  text-align: center;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(36, 154, 120, 0.55);
+}
+
+.circle-one {
+  width: 190px;
+  height: 190px;
+  right: -55px;
+  bottom: 20px;
+}
+
+.circle-two {
+  width: 170px;
+  height: 170px;
+  right: 70px;
+  bottom: -75px;
+  opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 72px 50px 56px;
+  }
+
+  .login-form-box {
+    width: 100%;
+  }
+
+  .login-logo-mobile {
+    display: block;
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+    margin: 0 auto 18px;
+  }
+
+  .login-form-box h2 {
+    font-size: 42px;
+    margin-bottom: 52px;
+  }
+
+  .login-subtitle {
+    display: none;
+  }
+
+  .login-form-box label,
+  .password-row label {
+    font-size: 16px;
+  }
+
+  .login-form-box input[type="email"],
+  .login-form-box input[type="password"] {
+    height: 40px;
+    border-width: 2px;
+    margin-bottom: 38px;
+  }
+
+  .password-row a {
+    font-size: 12px;
+  }
+
+  .login-submit {
+    margin-top: 158px;
+    height: 45px;
+    font-size: 25px;
+  }
+
+  .circle {
+    display: none;
+  }
+}
+
+/* REGISTER PAGE */
+.register-body {
+  background: var(--white);
+}
+
+.register-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+}
+
+.register-left {
+  position: relative;
+  background: var(--green);
+  color: var(--white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.register-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 12%, rgba(36, 154, 120, 0.5), transparent 28%),
+    linear-gradient(135deg, rgba(15, 92, 77, 0.85), rgba(9, 67, 55, 1));
+}
+
+.register-logo-small {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: var(--white);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-logo-small img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.register-left-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.register-left-text h1 {
+  font-size: clamp(44px, 5vw, 58px);
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.register-left-text span {
+  color: var(--cream);
+  font-style: italic;
+}
+
+.register-left-text p {
+  margin-top: 22px;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.register-right {
+  position: relative;
+  overflow: hidden;
+  border-radius: 42px 0 0 42px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form-box {
+  width: min(460px, calc(100% - 48px));
+  position: relative;
+  z-index: 2;
+}
+
+.register-logo-mobile {
+  display: none;
+}
+
+.register-form-box h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: 44px;
+  line-height: 1;
+  text-align: center;
+  font-weight: 900;
+}
+
+.register-subtitle {
+  text-align: center;
+  color: rgba(122, 136, 126, 0.65);
+  font-weight: 500;
+  margin: 8px 0 42px;
+  line-height: 1.25;
+}
+
+.register-form-box label {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.name-row input,
+.register-form-box input[type="email"],
+.register-form-box input[type="password"] {
+  width: 100%;
+  height: 42px;
+  border-radius: 999px;
+  border: 2px solid var(--green);
+  background: #CFE4DC;
+  padding: 0 18px;
+  outline: none;
+  font-size: 16px;
+  color: var(--green);
+}
+
+.register-form-box input[type="email"],
+.register-form-box input[type="password"] {
+  margin-bottom: 24px;
+}
+
+.terms-text {
+  text-align: center;
+  color: var(--green);
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 48px 0 10px;
+}
+
+.terms-text a,
+.login-link a {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.register-submit {
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.login-link {
+  text-align: center;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .register-page {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .register-left {
+    display: none;
+  }
+
+  .register-right {
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 72px 50px 56px;
+  }
+
+  .register-form-box {
+    width: 100%;
+  }
+
+  .register-logo-mobile {
+    display: block;
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+    margin: 0 auto 18px;
+  }
+
+  .register-form-box h2 {
+    font-size: 42px;
+    margin-bottom: 60px;
+  }
+
+  .register-subtitle {
+    display: none;
+  }
+
+  .register-form-box label {
+    font-size: 16px;
+  }
+
+  .name-row {
+    margin-bottom: 26px;
+    gap: 8px;
+  }
+
+  .name-row input,
+  .register-form-box input[type="email"],
+  .register-form-box input[type="password"] {
+    height: 40px;
+    border-width: 2px;
+  }
+
+  .register-form-box input[type="email"],
+  .register-form-box input[type="password"] {
+    margin-bottom: 31px;
+  }
+
+  .terms-text {
+    margin: 83px 0 10px;
+    font-size: 13px;
+  }
+
+  .register-submit {
+    height: 45px;
+    font-size: 25px;
+  }
+}

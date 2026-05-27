@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MPASI - SIGAP</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="mpasi-body">
+  <main class="mpasi-page">
+
+    <nav class="navbar mpasi-navbar">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="SIGAP" class="logo-desktop">
+        <img src="assets/logo-footer-dashboard.png" alt="SIGAP" class="logo-mobile">
+        <span>SIGAP</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#beranda">Beranda</a>
+        <a href="grafik.html">Grafik</a>
+        <a href="mpasi.html" class="mpasi-active">MPASI</a>
+        <a href="jadwal.html">Jadwal</a>
+        <a href="login.html" class="login-btn">Masuk</a>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#beranda">Beranda</a>
+      <a href="grafik.html">Grafik</a>
+      <a href="mpasi.html">MPASI</a>
+      <a href="jadwal.html">Jadwal</a>
+      <a href="login.html" class="mobile-login">Masuk</a>
+    </div>
+
+    <section class="mpasi-content">
+      <div class="mpasi-tools">
+        <div class="mpasi-search">
+          <img src="assets/search.png" alt="">
+          <input type="text" id="searchInput" placeholder="">
+        </div>
+
+        <button class="mpasi-filter-btn" id="filterBtn">
+          <img src="assets/filter.png" alt="Filter">
+        </button>
+      </div>
+
+      <section class="recommendation-section">
+        <h1>Rekomendasi Untuk Anda</h1>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </section>
+
+      <div class="pagination">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>&gt;</button>
+      </div>
+    </section>
+
+    <footer class="footer mpasi-footer">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="SIGAP">
+        <span>SIGAP</span>
+      </div>
+
+      <div class="footer-contact">
+        <p>
+          <img src="assets/instagram-footer.png" alt=""> @sigap_official
+        </p>
+        <p>
+          <img src="assets/whatsapp-footer.png" alt=""> 0852-6742-9033
+        </p>
+        <p>
+          <img src="assets/email-footer.png" alt=""> sigap@gmail.com
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

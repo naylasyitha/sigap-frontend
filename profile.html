@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Anak - SIGAP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Poppins:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/profil.css">
+</head>
+
+<body class="profil-body">
+  <nav class="navbar profil-navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="SIGAP">
+      <span>SIGAP</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html#beranda">Beranda</a>
+      <a href="grafik.html">Grafik</a>
+      <a href="mpasi.html">MPASI</a>
+      <a href="jadwal.html">Jadwal</a>
+      <a href="profile.html" class="profil-active">Profile</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#beranda">Beranda</a>
+    <a href="grafik.html">Grafik</a>
+    <a href="mpasi.html">MPASI</a>
+    <a href="jadwal.html">Jadwal</a>
+    <a href="profile.html">Profile</a>
+  </div>
+
+  <div class="profil-page">
+    <div class="profil-main">
+
+      <div class="child-selector-card" id="childSelectorCard">
+        <div class="child-active-row" id="childSelectorToggle">
+          <img src="assets/perempuan.svg" alt="Profil Anak" class="child-avatar-img">
+
+          <div class="child-info-text">
+            <span class="child-name">Memuat...</span>
+            <span class="child-sub">Memuat data anak...</span>
+          </div>
+
+          <svg class="dropdown-arrow" id="dropdownArrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="#155740" stroke-width="3">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+
+        <div class="profil-anak-dropdown" id="profilAnakDropdown">
+          <div class="profil-anak-option profil-anak-add" id="openTambahProfilBtn">
+            <span class="profil-anak-plus">
+              <img src="assets/Tambah Profil Anak.svg" alt="Tambah Profil Anak">
+            </span>
+            <span class="profil-anak-add-text">Tambah Profil Anak</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-card">
+        <div class="stats-header">
+          <img src="assets/perempuan.svg" alt="Profil Anak" class="stats-avatar-img">
+
+          <div>
+            <h2 class="stats-name">Memuat...</h2>
+            <div class="stats-tags">
+              <span class="tag">- bulan</span>
+              <span class="tag">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-numbers">
+          <div class="stat-item">
+            <span class="stat-value">-</span>
+            <span class="stat-unit">Kg</span>
+            <span class="stat-label">BB</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-value">-</span>
+            <span class="stat-unit">Cm</span>
+            <span class="stat-label">TB</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-value">-</span>
+            <span class="stat-unit">Cm</span>
+            <span class="stat-label">LK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nutrition-card">
+        <img src="assets/Status Gizi Cukup Baik.svg" alt="Status Gizi" class="nutrition-icon-img">
+
+        <div class="nutrition-text">
+          <p class="nutrition-title">Belum ada data pengukuran</p>
+          <p class="nutrition-note">Masukkan data pengukuran anak untuk melihat status gizi.</p>
+        </div>
+      </div>
+
+      <div class="updated-row">
+        <span class="updated-label">Belum diperbarui</span>
+        <button class="btn-input-data" id="openEditBtn">+ Input data</button>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">AKSI CEPAT</h2>
+
+        <div class="aksi-grid">
+          <button class="aksi-btn" id="openEditBtn2">
+            <img src="assets/input pengukuran.svg" alt="Input Pengukuran" class="aksi-icon-img">
+            <span>Input Pengukuran</span>
+            <small>Catat BB, TB, LK</small>
+          </button>
+
+          <button class="aksi-btn" onclick="window.location.href='grafik.html'">
+            <img src="assets/Lihat grafik.svg" alt="Lihat Grafik" class="aksi-icon-img">
+            <span>Lihat Grafik</span>
+            <small>BB/U, TB/U, BB/TB</small>
+          </button>
+
+          <button class="aksi-btn" onclick="window.location.href='mpasi.html'">
+            <img src="assets/Rekomendasi MPASI.svg" alt="Rekomendasi MPASI" class="aksi-icon-img">
+            <span>Rekomendasi MPASI</span>
+            <small>Menu hari ini</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">RIWAYAT PENGUKURAN</h2>
+        <div class="riwayat-card"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">INFORMASI LENGKAP</h2>
+
+        <div class="info-card">
+          <div class="info-row">
+            <img src="assets/perempuan.svg" alt="Foto" class="info-icon-img">
+            <div class="info-content">
+              <span class="info-label">Nama Lengkap</span>
+              <span class="info-value">-</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img src="assets/Tanggal Lahir.svg" alt="Tanggal Lahir" class="info-icon-img">
+            <div class="info-content">
+              <span class="info-label">Tanggal Lahir</span>
+              <span class="info-value">-</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img src="assets/Jenis Kelamin Perempuan.svg" alt="Jenis Kelamin" class="info-icon-img">
+            <div class="info-content">
+              <span class="info-label">Jenis Kelamin</span>
+              <span class="info-value">-</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img src="assets/Berat Lahir.svg" alt="Berat Lahir" class="info-icon-img">
+            <div class="info-content">
+              <span class="info-label">Berat Lahir</span>
+              <span class="info-value">- kg</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img src="assets/Panjang Lahir.svg" alt="Panjang Lahir" class="info-icon-img">
+            <div class="info-content">
+              <span class="info-label">Panjang Lahir</span>
+              <span class="info-value">- cm</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="tambah-card" id="openTambahProfilBtn2">
+        <img src="assets/Tambah Profil Anak.svg" alt="Tambah" class="tambah-icon">
+        <div>
+          <p class="tambah-title">Tambah Profil Anak</p>
+          <p class="tambah-sub">Kelola lebih dari 1 anak dalam 1 akun</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer mpasi-footer">
+    <div class="footer-logo">
+      <img src="assets/logo.png" alt="SIGAP">
+      <span>SIGAP</span>
+    </div>
+
+    <div class="footer-contact">
+      <p><img src="assets/instagram-footer.png" alt=""> @sigap_official</p>
+      <p><img src="assets/whatsapp-footer.png" alt=""> 0852-6742-9033</p>
+      <p><img src="assets/email-footer.png" alt=""> sigap@gmail.com</p>
+    </div>
+  </footer>
+
+  <div class="edit-modal-overlay" id="editModal">
+    <div class="edit-modal-box">
+      <div class="modal-handle"></div>
+
+      <h2 class="modal-title">Input Pengukuran</h2>
+
+      <form id="editForm">
+        <div class="form-group">
+          <label>Tanggal Pengukuran</label>
+          <input type="date" name="tanggal" required>
+        </div>
+
+        <div class="form-group">
+          <label>Berat Badan (kg)</label>
+          <input type="number" name="bb" step="0.1" placeholder="cth: 9.2" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tinggi Badan (cm)</label>
+          <input type="number" name="tb" step="0.1" placeholder="cth: 75" required>
+        </div>
+
+        <div class="form-group">
+          <label>Lingkar Kepala (cm)</label>
+          <input type="number" name="lk" step="0.1" placeholder="cth: 44" required>
+        </div>
+
+        <button type="submit" class="btn-save">Simpan Data</button>
+        <button type="button" class="btn-hapus" id="btnHapus">Hapus Profil Ini</button>
+
+        <button type="button" class="btn-save" id="closeEditBtn"
+          style="background:#e8f5ee; color:#155740; margin-top:8px;">
+          Batal
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="edit-modal-overlay" id="tambahProfilModal">
+    <div class="edit-modal-box tambah-profil-box">
+      <div class="modal-handle"></div>
+
+      <button type="button" class="modal-close-x" id="closeTambahProfilBtn">×</button>
+
+      <h2 class="modal-title">Tambah Profil Anak</h2>
+
+      <form id="tambahProfilForm">
+        <div class="form-group">
+          <label>Nama Anak</label>
+          <input type="text" name="namaAnak" placeholder="cth: Putra Andine" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <div class="date-input-wrap">
+            <input type="date" name="tanggalLahir" required>
+            <img src="assets/Tanggal Lahir edit profile.svg" alt="Tanggal Lahir" class="date-input-icon">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Jenis Kelamin</label>
+
+          <div class="gender-row gender-edit-row">
+            <div class="gender-option selected" data-gender="perempuan">
+              <input type="radio" name="jenisKelamin" value="perempuan" checked hidden>
+              <img src="assets/perempuan edit profile.svg" alt="Perempuan" class="gender-edit-icon">
+              <span>Perempuan</span>
+            </div>
+
+            <div class="gender-option" data-gender="laki">
+              <input type="radio" name="jenisKelamin" value="laki" hidden>
+              <img src="assets/laki laki edit profile.svg" alt="Laki-laki" class="gender-edit-icon">
+              <span>Laki-laki</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Berat Lahir (kg)</label>
+          <input type="number" name="beratLahir" step="0.1" placeholder="cth: 3.1" required>
+        </div>
+
+        <div class="form-group">
+          <label>Panjang Lahir (cm)</label>
+          <input type="number" name="panjangLahir" step="0.1" placeholder="cth: 49" required>
+        </div>
+
+        <button type="submit" class="btn-save">Simpan Profil</button>
+        <button type="button" class="btn-hapus" id="btnHapusTambah">Hapus Profil Ini</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/profil.js"></script>
+</body>
+</html>

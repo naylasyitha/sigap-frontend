@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGAP – Jadwal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/jadwal.css" />
+</head>
+
+<body class="jadwal-page">
+  <nav class="navbar jadwal-navbar">
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="SIGAP" class="logo-desktop">
+        <img src="assets/logo-footer-dashboard.png" alt="SIGAP" class="logo-mobile">
+        <span>SIGAP</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html#beranda">Beranda</a>
+      <a href="grafik.html">Grafik</a>
+      <a href="mpasi.html">MPASI</a>
+      <a href="jadwal.html" class="jadwal-active">Jadwal</a>
+      <a href="profile.html">Profile</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#beranda">Beranda</a>
+    <a href="grafik.html">Grafik</a>
+    <a href="mpasi.html">MPASI</a>
+    <a href="jadwal.html" class="jadwal-active">Jadwal</a>
+    <a href="profile.html">Profile</a>
+  </div>
+
+  <main>
+    <div class="jadwal-container">
+      <aside class="jadwal-sidebar">
+        <div class="sidebar-notice">
+          <span class="notice-icon">💡</span>
+          <p>Pastikan notifikasi email anda telah aktif untuk menerima pengingat jadwal!</p>
+        </div>
+
+        <div class="sidebar-info">
+          <p>Notifikasi pengingat jadwal dikirimkan melalui email yang sudah terdaftar.</p>
+        </div>
+
+        <button class="btn-tambah-jadwal" id="btnTambahJadwal">
+          Tambah Jadwal
+        </button>
+        <p class="btn-tambah-caption">Tambahkan jadwal pengukuran, imunisasi, atau kunjungan ke bidan</p>
+      </aside>
+      <section class="jadwal-list" id="jadwalList"></section>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalTambahJadwal">
+    <div class="modal-box">
+      <div>
+        <label class="form-label">PILIH PROFILE ANAK</label>
+        <div class="profile-select-box">
+          <select id="inputChild" class="child-select"></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label class="form-label">TANGGAL</label>
+          <div class="form-input-wrap">
+            <input type="date" class="form-input" id="inputTanggal" value="2026-05-27">
+          </div>
+        </div>
+        <div>
+          <label class="form-label">WAKTU</label>
+          <div class="form-input-wrap">
+            <input type="time" class="form-input" id="inputWaktu" value="09:00">
+          </div>
+        </div>
+      </div>
+      <div>
+        <label class="form-label">JENIS KEGIATAN</label>
+        <div class="select-wrap">
+          <select class="form-select" id="inputJenis">
+            <option value="imunisasi">Imunisasi</option>
+            <option value="timbang">Jadwal Timbang</option>
+            <option value="cek">Cek Kesehatan</option>
+            <option value="bidan">Kunjungan Bidan</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="form-label">NAMA KEGIATAN</label>
+        <input type="text" class="form-text" id="inputNama" placeholder="Misal: Imunisasi Varisela, Jadwal Timbang">
+      </div>
+      <div>
+        <label class="form-label">LOKASI</label>
+        <input type="text" class="form-text" id="inputLokasi" placeholder="Nama Rumah Sakit atau Puskesmas">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-simpan" id="btnSimpan">Simpan</button>
+        <button class="btn-batal" id="btnBatal">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer jadwal-footer">
+    <div class="footer-logo">
+      <img src="assets/logo.png" alt="SIGAP">
+      <span>SIGAP</span>
+    </div>
+    <div class="footer-contact">
+      <p>
+        <img src="assets/instagram-footer.png" alt=""> @sigap_official
+      </p>
+      <p>
+        <img src="assets/whatsapp-footer.png" alt=""> 0852-6742-9033
+      </p>
+      <p>
+        <img src="assets/email-footer.png" alt=""> sigap@gmail.com
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/jadwal.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+.mpasi-body {
+  background: var(--white);
+  color: var(--green);
+}
+
+.mpasi-page {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+.mpasi-navbar {
+  background: #CFE4DC;
+}
+
+.mpasi-active {
+  background: var(--green);
+  color: var(--white) !important;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+
+.mpasi-content {
+  width: min(820px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 174px 0 145px;
+}
+
+.mpasi-tools {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 74px;
+}
+
+.mpasi-search {
+  flex: 1;
+  height: 43px;
+  border: 3px solid var(--green);
+  border-radius: 999px;
+  background: #CFE4DC;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+}
+
+.mpasi-search img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.mpasi-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mpasi-filter-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mpasi-filter-btn img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.recommendation-section h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 27px;
+  color: var(--green);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 43px 47px;
+}
+
+.menu-card {
+  background: #EBF9F3;
+  border: 2px solid var(--green);
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 6px 11px rgba(0, 0, 0, 0.18);
+}
+
+.menu-card-image {
+  width: 100%;
+  height: 132px;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-card-body {
+  min-height: 76px;
+  padding: 16px 20px 14px;
+}
+
+.menu-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+
+.menu-card h3 {
+  font-size: 15.5px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.menu-age {
+  min-width: 104px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.menu-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.duration-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.pagination {
+  margin-top: 68px;
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+}
+
+.pagination button {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  background: #EBF9F3;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.pagination .active {
+  background: var(--green);
+  color: var(--white);
+}
+
+.mpasi-footer {
+  background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  color: var(--white);
+}
+
+.mpasi-footer .footer-logo {
+  background: var(--white);
+  color: var(--green);
+}
+
+.mpasi-footer .footer-contact {
+  color: var(--white);
+}
+
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .mpasi-body {
+    background: var(--white);
+  }
+
+  .mpasi-navbar {
+    background: #1A6B4F;
+  }
+
+  .mpasi-navbar .nav-logo,
+  .mpasi-navbar .nav-logo span {
+    color: var(--white);
+  }
+
+  .mpasi-navbar .hamburger span {
+    background: var(--white);
+  }
+
+  .mpasi-content {
+    width: calc(100% - 48px);
+    padding: 150px 0 70px;
+  }
+
+  .mpasi-tools {
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .mpasi-search {
+    height: 37px;
+    border-width: 2px;
+    padding: 0 14px;
+  }
+
+  .mpasi-search img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mpasi-filter-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mpasi-filter-btn img {
+    width: 31px;
+    height: 31px;
+  }
+
+  .recommendation-section h1 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .menu-card {
+    border-radius: 9px;
+  }
+
+  .menu-card-image {
+    height: 118px;
+  }
+
+  .menu-card-body {
+    min-height: 68px;
+    padding: 12px 18px 13px;
+  }
+
+  .menu-card h3 {
+    font-size: 15px;
+  }
+
+  .menu-age {
+    min-width: 98px;
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .menu-duration {
+    font-size: 13px;
+  }
+
+  .pagination {
+    margin-top: 29px;
+  }
+
+  .pagination button {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .mpasi-footer {
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  }
+
+  .mpasi-footer .footer-logo {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .mpasi-footer .footer-contact {
+    color: var(--white);
+  }
+
+  .mpasi-navbar .logo-desktop { display: none; }
+  .mpasi-navbar .logo-mobile { display: block; }
+}

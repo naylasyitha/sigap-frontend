@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Daftar - SIGAP</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="register-body">
+  <main class="register-page">
+
+    <section class="register-left">
+      <a href="index.html" class="register-logo-small">
+        <img src="assets/logo.png" alt="SIGAP">
+      </a>
+
+      <div class="register-left-text">
+        <h1>
+          Pantau Tumbuh<br>
+          Kembang<br>
+          si Kecil dengan <span>Mudah</span>
+        </h1>
+        <p>Mulai sekarang, dengan kami.</p>
+      </div>
+    </section>
+
+    <section class="register-right">
+      <div class="register-form-box">
+        <img src="assets/logo.png" alt="SIGAP" class="register-logo-mobile">
+
+        <h2>DAFTAR</h2>
+        <p class="register-subtitle">
+          Selamat datang, silakan isi data diri Anda<br>
+          untuk melakukan pendaftaran!
+        </p>
+
+        <form id="registerForm">
+          <label for="name">Nama</label>
+          <div class="name-row">
+            <input type="text" id="name">
+            <input type="text" id="last-name">
+          </div>
+
+          <label for="email-register">Email</label>
+          <input type="email" id="email-register">
+
+          <label for="password-register">Kata sandi</label>
+          <input type="password" id="password-register">
+
+          <p class="terms-text">
+            Dengan mendaftar, Anda menyetujui Syarat & Ketentuan
+            serta Kebijakan Privasi SIGAP.
+            <a href="#">Pelajari lebih lanjut</a>
+          </p>
+
+          <button type="submit" class="register-submit">Daftar</button>
+
+          <p class="login-link">
+            Sudah memiliki akun? <a href="login.html">Masuk</a>
+          </p>
+        </form>
+      </div>
+
+      <div class="circle circle-one"></div>
+      <div class="circle circle-two"></div>
+    </section>
+
+  </main>
+
+  <script src="js/api.js"></script>  <!-- pindah ke sini -->
+  <script src="js/auth.js"></script>
+
+</body>
+</html>

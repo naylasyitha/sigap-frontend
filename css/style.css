@@ -1,0 +1,42 @@
+@import url("navbar.css");
+@import url("hero.css");
+@import url("landing.css");
+@import url("auth.css");
+@import url("mpasi.css");
+
+:root {
+  --green: #155740;
+  --green-dark: #0b4b3f;
+  --green-soft: #1f9b78;
+  --mint: #EBF9F3;
+  --cream: #F6E7CB;
+  --white: #F8FAF9;
+  --text: #154f43;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--green);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}

@@ -1,0 +1,469 @@
+:root {
+  --color-timbang:    #F5A623;
+  --color-imunisasi:  #A78BFA;
+  --color-cek:       #60A5FA;
+  --color-bidan:      #34D399; 
+  --color-lainnya:    #155740;
+}
+
+.jadwal-page {
+  background: #f0f5f2;
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+
+.jadwal-container {
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 140px;
+  padding-bottom: 60px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.jadwal-navbar {
+  background: #CFE4DC;
+}
+
+.jadwal-active {
+  background: var(--green);
+  color: var(--white) !important;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+
+.jadwal-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: flex;
+  top: 130px;
+}
+
+.sidebar-notice {
+  background: rgba(21, 87, 64, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sidebar-notice .notice-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sidebar-notice p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.sidebar-info {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.sidebar-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.btn-tambah-jadwal {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-tambah-jadwal:hover {
+  background: var(--green-dark);
+}
+
+.btn-tambah-caption {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #7a9e8e;
+  text-align: center;
+}
+
+.jadwal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.jadwal-group-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.jadwal-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jadwal-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.jadwal-card:hover {
+  box-shadow: 0 4px 16px rgba(21,87,64,0.10);
+  border-color: rgba(21,87,64,0.12);
+}
+
+.jadwal-color-block {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.jadwal-card[data-type="timbang"]   .jadwal-color-block { background: var(--color-timbang); }
+.jadwal-card[data-type="imunisasi"] .jadwal-color-block { background: var(--color-imunisasi); }
+.jadwal-card[data-type="cek"]     .jadwal-color-block { background: var(--color-cek); }
+.jadwal-card[data-type="bidan"]     .jadwal-color-block { background: var(--color-bidan); }
+.jadwal-card[data-type="lainnya"]   .jadwal-color-block { background: var(--color-lainnya); }
+
+.jadwal-card-info h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 2px;
+}
+
+.jadwal-card-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #5a8070;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 24px;
+  width: min(560px, 100%);
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.form-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.child-select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--green);
+  font-weight: 700;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-select-box {
+  background: #d4ece0;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info strong {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.profile-info span {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #4a7a62;
+}
+
+.dropdown-arrow {
+  color: var(--green);
+  font-size: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-input-wrap {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 40px 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+}
+
+.form-input::placeholder {
+  color: #7a9e8e;
+}
+
+.input-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.form-select {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 40px 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--green);
+  pointer-events: none;
+}
+
+.form-text {
+  width: 100%;
+  background: #ebf5f0;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+
+.form-text::placeholder {
+  color: #7a9e8e;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.btn-simpan {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-simpan:hover { background: var(--green-dark); }
+
+.btn-batal {
+  background: #e05a3a;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-batal:hover { background: #c44d2e; }
+
+.jadwal-footer {
+  background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  color: var(--white);
+}
+
+.jadwal-footer .footer-logo {
+  background: var(--white);
+  color: var(--green);
+}
+
+.jadwal-footer .footer-contact {
+  color: var(--white);
+}
+
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
+
+@media (max-width: 768px) {
+  .jadwal-container {
+    grid-template-columns: 1fr;
+    padding-top: 130px;
+    gap: 0;
+  }
+
+  .jadwal-navbar {
+    background: #1A6B4F;
+  }
+
+  .jadwal-navbar .nav-logo,
+  .jadwal-navbar .nav-logo span {
+    color: var(--white);
+  }
+
+  .jadwal-navbar .hamburger span {
+    background: var(--white);
+  }
+
+  .jadwal-navbar .logo-desktop { display: none; }
+  .jadwal-navbar .logo-mobile { display: block; }
+
+  .jadwal-sidebar {
+    order: 2;
+    position: static;
+    margin-top: 32px;
+  }
+
+  .jadwal-list {
+    order: 1;
+  }
+
+  .btn-tambah-jadwal {
+    border-radius: 14px;
+  }
+
+  .modal-box {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-simpan,
+  .btn-batal {
+    width: 100%;
+    text-align: center;
+  }
+
+  .jadwal-footer {
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  }
+
+  .jadwal-footer .footer-logo {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .jadwal-footer .footer-contact {
+    color: var(--white);
+  }
+}

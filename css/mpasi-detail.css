@@ -1,0 +1,372 @@
+.mpasi-page {
+  background: var(--white);
+  min-height: 100vh;
+}
+
+.mpasi-container {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 130px;
+  padding-bottom: 72px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.mpasi-navbar {
+  background: #CFE4DC;
+}
+
+.mpasi-active {
+  background: var(--green);
+  color: var(--white) !important;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+
+.mpasi-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: flex;
+  top: 130px;
+}
+
+.mpasi-hero-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.mpasi-hero-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #c8e6d4 0%, #a8d5b8 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+
+.mpasi-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mpasi-tag {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 5px 14px;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  background: #CFE4DC;
+}
+
+.mpasi-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1.25;
+}
+
+.mpasi-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.mpasi-stat {
+  background:#CFE4DC;
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mpasi-stat .stat-value {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.mpasi-section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mpasi-section-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--green);
+  opacity: 0.2;
+  border-radius: 99px;
+}
+
+.nutrition-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nutrition-chip {
+  background: #CFE4DC;
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.nutrition-chip .nutr-value {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.nutrition-chip .nutr-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #7a9e8e;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.mpasi-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ingredient-card {
+  background: #CFE4DC;
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingredient-card .ingr-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.3;
+}
+
+.ingredient-card .ingr-amount {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #7a9e8e;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 50%;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-content {
+  border-left: 2px solid rgba(21,87,64,0.15);
+  padding-left: 16px;
+  padding-bottom: 4px;
+  flex: 1;
+}
+
+.step-content h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.step-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #CFE4DC;
+  border: 1.5px solid var(--green);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.mpasi-footer {
+  background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  color: var(--white);
+}
+
+.mpasi-footer .footer-logo {
+  background: var(--white);
+  color: var(--green);
+}
+
+.mpasi-footer .footer-contact {
+  color: var(--white);
+}
+
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
+
+@media (max-width: 768px) {
+  .mpasi-container {
+    grid-template-columns: 1fr;
+    padding-top: 118px;
+    gap: 24px;
+  }
+
+  .mpasi-navbar {
+    background: #1A6B4F;
+  }
+
+  .mpasi-navbar .nav-logo,
+  .mpasi-navbar .nav-logo span {
+    color: var(--white);
+  }
+
+  .mpasi-left {
+    position: static;
+  }
+
+  .mpasi-hero-img,
+  .mpasi-hero-placeholder {
+    border-radius: 16px;
+  }
+
+  .mpasi-title {
+    font-size: 24px;
+  }
+
+  .mpasi-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mpasi-footer {
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  }
+
+  .mpasi-footer .footer-logo {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .mpasi-footer .footer-contact {
+    color: var(--white);
+  }
+
+  .mpasi-navbar .logo-desktop { display: none; }
+  .mpasi-navbar .logo-mobile { display: block; }
+}
+
+@media (max-width: 400px) {
+  .mpasi-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ingredients-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mpasi-navbar {
+    background: #1A6B4F;
+  }
+
+  .mpasi-navbar .nav-logo,
+  .mpasi-navbar .nav-logo span {
+    color: var(--white);
+  }
+
+  .mpasi-navbar .hamburger span {
+    background: var(--white);
+  }
+  
+  .mpasi-footer {
+    background: linear-gradient(180deg, #239068 0%, #063d32 100%);
+  }
+
+  .mpasi-footer .footer-logo {
+    background: var(--white);
+    color: var(--green);
+  }
+
+  .mpasi-footer .footer-contact {
+    color: var(--white);
+  }
+
+  .mpasi-navbar .logo-desktop { display: none; }
+  .mpasi-navbar .logo-mobile { display: block; }
+}

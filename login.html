@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Masuk - SIGAP</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+  <main class="login-page">
+
+    <section class="login-left">
+      <a href="index.html" class="login-logo-small">
+        <img src="assets/logo.png" alt="SIGAP">
+      </a>
+
+      <div class="login-left-text">
+        <h1>
+          Pantau Tumbuh<br>
+          Kembang<br>
+          si Kecil dengan <span>Mudah</span>
+        </h1>
+        <p>Mulai sekarang, dengan kami.</p>
+      </div>
+    </section>
+
+    <section class="login-right">
+      <div class="login-form-box">
+        <img src="assets/logo.png" alt="SIGAP" class="login-logo-mobile">
+
+        <h2>MASUK</h2>
+        <p class="login-subtitle">Selamat datang kembali!</p>
+
+        <form id="loginForm">
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+
+          <div class="password-row">
+            <label for="password">Kata sandi</label>
+            <a href="#">Lupa kata sandi?</a>
+          </div>
+          <input type="password" id="password" />
+
+          <label class="remember-row">
+            <input type="checkbox">
+            <span>Ingat saya</span>
+          </label>
+
+          <button type="submit" class="login-submit">Masuk</button>
+
+          <p class="register-link">
+            Belum punya akun? <a href="register.html">Daftar di sini</a>
+          </p>
+        </form>
+      </div>
+
+      <div class="circle circle-one"></div>
+      <div class="circle circle-two"></div>
+    </section>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  
+</body>
+</html>
