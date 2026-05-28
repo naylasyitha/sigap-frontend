@@ -71,7 +71,6 @@ function buildChildDataset(key) {
   return state.measurements.map(m => ({ x: m.ageMonths, y: m[key] }));
 }
 
-// ── LOAD CHILDREN ──
 async function loadChildren() {
   const res = await fetch(`${API_BASE_URL}/children`, {
     headers: getHeaders(),
@@ -149,6 +148,37 @@ function makeChart(canvasId, metric, whoKey, yLabel) {
 
   if (canvasId === 'chartBB' && chartBBInstance) { chartBBInstance.destroy(); }
   if (canvasId === 'chartTB' && chartTBInstance) { chartTBInstance.destroy(); }
+
+  const latestLabelPlugin = {
+    id: `latestLabel_${canvasId}`,
+    afterDatasetsDraw(chart) {
+      const ds = chart.data.datasets.find(d => d.label === state.child.firstName);
+      if (!ds || !ds.data.length) return;
+      const meta = chart.getDatasetMeta(chart.data.datasets.indexOf(ds));
+      const lastEl = meta.data[meta.data.length - 1];
+      if (!lastEl) return;
+      const { x, y } = lastEl.getProps(['x','y'], true);
+      const ctx = chart.ctx;
+      const lastMeasure = state.measurements[state.measurements.length - 1];
+      const val = lastMeasure[metric];
+      const unit = whoKey === 'bb' ? 'kg' : 'cm';
+      const label = `${val}${unit}`;
+      ctx.save();
+      ctx.fillStyle = ORANGE;
+      ctx.font = 'bold 11px Poppins, sans-serif';
+      const w = ctx.measureText(label).width + 14;
+      const h = 20;
+      const rx = x - w / 2, ry = y - 28;
+      ctx.beginPath();
+      ctx.roundRect(rx, ry, w, h, 6);
+      ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, ry + h / 2);
+      ctx.restore();
+    }
+  };
 
   const chart = new Chart(ctx, {
     type: 'line',
@@ -254,42 +284,9 @@ function makeChart(canvasId, metric, whoKey, yLabel) {
           }
         }
       }
-    }
-  });
-
-  const latestLabelPlugin = {
-    id: `latestLabel_${canvasId}`,
-    afterDatasetsDraw(chart) {
-      const ds = chart.data.datasets.find(d => d.label === state.child.firstName);
-      if (!ds || !ds.data.length) return;
-      const meta = chart.getDatasetMeta(chart.data.datasets.indexOf(ds));
-      const lastEl = meta.data[meta.data.length - 1];
-      if (!lastEl) return;
-      const { x, y } = lastEl.getProps(['x','y'], true);
-      const ctx = chart.ctx;
-      const lastMeasure = state.measurements[state.measurements.length - 1];
-      const val = lastMeasure[metric];
-      const unit = whoKey === 'bb' ? 'kg' : 'cm';
-      const label = `${val}${unit}`;
-      ctx.save();
-      ctx.fillStyle = ORANGE;
-      ctx.font = 'bold 11px Poppins, sans-serif';
-      const w = ctx.measureText(label).width + 14;
-      const h = 20;
-      const rx = x - w / 2, ry = y - 28;
-      ctx.beginPath();
-      ctx.roundRect(rx, ry, w, h, 6);
-      ctx.fill();
-      ctx.fillStyle = '#fff';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(label, x, ry + h / 2);
-      ctx.restore();
-    }
-  };
-
-  Chart.register(latestLabelPlugin);
-  chart.update();
+    },
+    plugins: [latestLabelPlugin]
+  });  
 
   if (canvasId === 'chartBB') chartBBInstance = chart;
   if (canvasId === 'chartTB') chartTBInstance = chart;
@@ -333,7 +330,6 @@ function assessStatus() {
   };
 }
 
-// ── RENDER ──
 function updateStats() {
   if (!state.measurements.length) {
     document.getElementById('statBB').textContent = '-';
@@ -366,7 +362,6 @@ function fullUpdate() {
   updateCharts();
 }
 
-// ── MODAL ──
 const modal     = document.getElementById('modalInputData');
 const btnInput  = document.getElementById('btnInputData');
 const btnBatal  = document.getElementById('btnBatal');
@@ -387,10 +382,46 @@ btnSimpan.addEventListener("click", async () => {
   const lk  = parseFloat(document.getElementById("inputLK").value);
   const tgl = document.getElementById("inputTanggal").value;
 
-  if (!bb || !tb || !tgl) {
-    alert("Tanggal, berat badan, dan tinggi badan wajib diisi!");
-    return;
+  const bbError  = document.querySelector("#bb-error");
+  const tbError  = document.querySelector("#tb-error");
+  const lkError  = document.querySelector("#lk-error");
+  const tglError = document.querySelector("#tgl-error");
+
+  let adaError = false;
+
+  if (!tgl) {
+    tglError.textContent = "Tanggal pengukuran wajib diisi!";
+    tglError.style.display = "block";
+    adaError = true;
+  } else {
+    tglError.style.display = "none";
   }
+
+  if (!document.getElementById("inputBB").value || isNaN(bb) || bb <= 0) {
+    bbError.textContent = "Berat badan harus lebih dari 0 kg!";
+    bbError.style.display = "block";
+    adaError = true;
+  } else {
+    bbError.style.display = "none";
+  }
+
+  if (!document.getElementById("inputTB").value || isNaN(tb) || tb <= 0) {
+    tbError.textContent = "Tinggi badan harus lebih dari 0 cm!";
+    tbError.style.display = "block";
+    adaError = true;
+  } else {
+    tbError.style.display = "none";
+  }
+
+  if (document.getElementById("inputLK").value && (isNaN(lk) || lk <= 0)) {
+    lkError.textContent = "Lingkar kepala harus lebih dari 0 cm!";
+    lkError.style.display = "block";
+    adaError = true;
+  } else {
+    lkError.style.display = "none";
+  }
+
+  if (adaError) return;
 
   const payload = {
     child_id: state.child.id,
@@ -421,7 +452,17 @@ btnSimpan.addEventListener("click", async () => {
   await loadGrowthRecords();
 });
 
-// ── INIT ──
+[
+  { inputId: "#inputBB",  errorId: "#bb-error"  },
+  { inputId: "#inputTB",  errorId: "#tb-error"  },
+  { inputId: "#inputLK",  errorId: "#lk-error"  },
+  { inputId: "#inputTanggal", errorId: "#tgl-error" },
+].forEach(({ inputId, errorId }) => {
+  document.querySelector(inputId)?.addEventListener("input", function () {
+    document.querySelector(errorId).style.display = "none";
+  });
+});
+
 document.addEventListener("DOMContentLoaded", async () => {
   if (!token) {
     alert("Silakan login dulu");

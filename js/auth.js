@@ -11,6 +11,16 @@ if (registerForm) {
     const email = document.querySelector("#email-register").value;
     const password = document.querySelector("#password-register").value;
 
+    const passwordError = document.querySelector("#password-error");
+    if (password.length < 8) {
+      passwordError.textContent = "Kata sandi minimal 8 karakter!";
+      passwordError.style.display = "block";
+      return;
+    } else {
+      passwordError.textContent = "";
+      passwordError.style.display = "none";
+    }    
+
     try {
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
@@ -27,9 +37,22 @@ if (registerForm) {
       const result = await response.json();
 
       if (!response.ok) {
-        alert(result.errors || result.message);
-        return;
+      const emailError = document.querySelector("#email-error");
+
+      const pesanServer = result.errors || result.message || "";
+      const emailSudahAda = pesanServer.toLowerCase().includes("email") && 
+      (pesanServer.toLowerCase().includes("already") || 
+      pesanServer.toLowerCase().includes("exist") || 
+      pesanServer.toLowerCase().includes("terdaftar") || 
+      response.status === 409);
+      if (emailSudahAda) {
+        emailError.textContent = "Email ini sudah terdaftar. Silakan login atau pakai email lain.";
+        emailError.style.display = "block";
+      } else {
+        alert(pesanServer || "Terjadi kesalahan. Coba lagi.");
       }
+      return;
+    }
 
       alert("Registrasi berhasil!");
 
@@ -63,7 +86,14 @@ if (loginForm) {
       const result = await response.json();
 
       if (!response.ok) {
-        alert(result.errors || result.message);
+        const loginError = document.querySelector("#login-error");
+
+        if (response.status === 401 || response.status === 400) {
+          loginError.textContent = "Email atau kata sandi salah. Coba lagi!";
+          loginError.style.display = "block";
+        } else {
+          alert(result.errors || result.message || "Terjadi kesalahan. Coba lagi.");
+        }
         return;
       }
 
